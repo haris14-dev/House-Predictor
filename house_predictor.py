@@ -1,9 +1,12 @@
+import os
+os.system("pip install scikit-learn streamlit pandas numpy matplotlib")
+
 import streamlit as st
 import pandas as pd
 from sklearn.datasets import fetch_california_housing
-from sklearn.model_selection import train_test_split
-from sklearn.preprocessing import StandardScaler
 from sklearn.linear_model import LinearRegression
+import numpy as np
+
 
 # =========================
 # 1. Load and Train Model
@@ -79,6 +82,7 @@ if st.button("🔮 Predict Price"):
     # Optional display of user inputs
     st.write("### Your Inputs")
     st.dataframe(input_data)
+
 
 
 
