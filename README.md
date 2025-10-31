@@ -1,4 +1,4 @@
-# 🎬 House Predictor System (K-Means Clustering)
+# 🎬 House Predictor System 
 
 A simple house predictor app using LogisticRegression on the California dataset.
 
