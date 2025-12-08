@@ -7,10 +7,6 @@ from sklearn.datasets import fetch_california_housing
 from sklearn.linear_model import LinearRegression
 import numpy as np
 
-
-# =========================
-# 1. Load and Train Model
-# =========================
 @st.cache_data
 def train_model():
     data = fetch_california_housing()
@@ -33,9 +29,6 @@ def train_model():
 
 model, scale, feature_names = train_model()
 
-# =========================
-# 2. Streamlit UI
-# =========================
 st.set_page_config(page_title="California House Price Predictor", page_icon="🏠", layout="centered")
 st.title("🏠 California House Price Predictor")
 st.write("Enter details below to predict the **median house value** for a California district.")
@@ -48,9 +41,7 @@ and predicts the **median house value (in $100,000 units)**
 based on demographic and geographical data.
 """)
 
-# =========================
-# 3. User Inputs
-# =========================
+
 st.subheader("Enter District Information:")
 
 MedInc = st.number_input("Median Income (1 – 15)", min_value=0.5, max_value=15.0, value=5.0, step=0.1)
@@ -68,9 +59,7 @@ input_data = pd.DataFrame([[
     Population, AveOccup, Latitude, Longitude
 ]], columns=feature_names)
 
-# =========================
-# 4. Predict Button
-# =========================
+
 if st.button("🔮 Predict Price"):
     # Scale input data
     input_scaled = scale.transform(input_data)
@@ -82,6 +71,7 @@ if st.button("🔮 Predict Price"):
     # Optional display of user inputs
     st.write("### Your Inputs")
     st.dataframe(input_data)
+
 
 
 
